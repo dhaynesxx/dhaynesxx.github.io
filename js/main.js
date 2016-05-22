@@ -119,7 +119,6 @@ app.mobileArrowsVertical = function() {
             $('#down-arrow').removeClass('hide');
             break;
         case 1:  /// about me
-            $('#left-arrow, #right-arrow').addClass('hide');
             $('#up-arrow, #down-arrow').removeClass('hide');
             break;
         case 2:  /// my skills
@@ -138,7 +137,6 @@ app.mobileArrowsVertical = function() {
 };
 
 app.mobileArrowsHorizontal = function(screen) {
-    var counter = 1;
     var max, current;
     if (screen === 'about') {
         max = app.aboutMe.length - 1;
@@ -158,8 +156,6 @@ app.mobileArrowsHorizontal = function(screen) {
     } else {
         $('#left-arrow, #right-arrow').removeClass('hide');
     }
-    console.log(counter);
-    counter++;
 };
 
 app.moveUp = _.debounce( function(time) {
@@ -185,7 +181,6 @@ app.moveDown = _.debounce( function(time) {
     app.currentScreen += 1;
     if (app.currentScreen === 1) {
         app.circleHeight();
-        // app.mobileArrowsHorizontal('about');
     }
 }, 800, true);
 
@@ -304,10 +299,16 @@ app.swipeControls = function(){
     $('body').swipe( {
         swipeUp: function() {
             app.moveDown();
+            if (app.currentScreen === 1) {
+                app.mobileArrowsHorizontal('about');
+            }
             app.mobileArrowsVertical();
         },
         swipeDown: function() {
             app.moveUp();
+            if (app.currentScreen === 1) {
+                app.mobileArrowsHorizontal('about');
+            }
             app.mobileArrowsVertical();
         },
         threshold: 10
@@ -404,7 +405,6 @@ $(document).ready(function(){
     ////////// close portfolio click event ///////////////////
 
     $('#modal-container').on('click', function() {
-        console.log( this );
         $('#modal-container').addClass('hide');
     });
 });
