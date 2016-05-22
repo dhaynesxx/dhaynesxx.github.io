@@ -318,6 +318,7 @@ app.swipeControls = function(){
             $('#' + app.pages[ app.currentScreen ]).addClass('hide');
             $('#' + $(this).text().toLowerCase()).removeClass('hide');
             app.currentScreen = app.pages.indexOf($(this).text().toLowerCase());
+            app.mobileArrowsVertical();
         }
     });
 };
@@ -381,7 +382,7 @@ $(document).ready(function(){
         }
     });
 
-    $('.menu-link').on('click', function(){
+    $('.menu').on('click', function(){
             $('#' + app.pages[ app.currentScreen ]).addClass('hide');
             $('#' + $(this).text().toLowerCase()).removeClass('hide');
             app.currentScreen = app.pages.indexOf($(this).text().toLowerCase());
