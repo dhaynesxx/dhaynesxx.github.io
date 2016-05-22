@@ -70,13 +70,13 @@
 }
 
 .mobile-project-link {
-  height: 250px;
+  height: 150px;
   border: 1px solid black;
   border-radius: 50px;
   background-color: rgba(68,198,190,1);
   color: white;
-  font-size: 200px;
-  line-height: 250px;
+  font-size: 100px;
+  line-height: 150px;
   margin-bottom: 50px;
 }
 
