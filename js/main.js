@@ -312,7 +312,7 @@ app.swipeControls = function(){
         },
         threshold: 10
     });
-    $('.mobile -menu').swipe({
+    $('.mobile-menu').swipe({
         tap: function() {
             $('#' + app.pages[ app.currentScreen ]).addClass('hide');
             $('#' + $(this).text().toLowerCase()).removeClass('hide');
